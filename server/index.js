@@ -7,12 +7,13 @@ import postRoutes from './routes/posts.js';
 
 const app = express();
 
-app.use('/posts', postRoutes);
 
 app.use(bodyParser.json({limit: "30mb", extended: true}));
 app.use(bodyParser.urlencoded({limit: "30mb", extended: true}));
 
 app.use(cors());
+
+app.use('/posts', postRoutes);
 
 // time to connect to mongo_db database (atlas)
 const CONNECTION_URL = "mongodb+srv://zamanshahed:1hY4pEj4g8CcpE92@memories.d8byrn6.mongodb.net/?retryWrites=true&w=majority";
